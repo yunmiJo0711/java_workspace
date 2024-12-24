@@ -21,7 +21,7 @@ public class A01DataTest {
         isAdult = myage >=20;   // 관계식 실행 후 대입
         System.out.println("성인 인증="+isAdult);
 
-        // myage = 15;
+        myage = 15;
         isAdult = myage >=20;   // 관계식 실행 후 대입
         System.out.println("성인 인증="+isAdult);  // 예상값 : false
 
