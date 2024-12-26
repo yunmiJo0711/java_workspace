@@ -14,7 +14,7 @@ public class A04Quiz {
     int result = wonToDollar(money,rateWon);
     System.out.println("wonToDollar(money,rateWon) : "+ result+" 달러");
     
-    // 344 달러 소수점까지 출력하기
+    // 344 달러 실수(소수점)까지 출력하기
     double resultDouble = wonToDollarDouble(money, rateWon);
     System.out.println("wonToDollarDouble(money, rateWon) : "+ resultDouble);
 
@@ -27,7 +27,7 @@ public class A04Quiz {
     result = dollarToWon(money,rateWon);
     System.out.println("dollarToWon(money, rateWon) : "+ result+" 원");
     
-    // 17400 원 소수점까지 출력하기
+    // 17400 원 실수(소수점)까지 출력하기
     resultDouble = dollarToWonDouble(money, rateWon);
     System.out.println("dollarToWonDouble(money, rateWon) : "+ resultDouble);
 
