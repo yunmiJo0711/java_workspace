@@ -60,9 +60,6 @@ public class A17CharTest {
         char some_code = (char)some; //강제 캐스팅
         System.out.println(some_code);
         
-        
-
-
     }
 
 }
