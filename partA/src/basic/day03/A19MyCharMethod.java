@@ -27,7 +27,7 @@ public class A19MyCharMethod {
             }else {
                 symbol_count++;
             }
-            }  // for문 end
+        }  // for문 end
 
         System.out.println("대문자의 갯수 : " + upper_count);  // 4
         System.out.println("소문자의 갯수 : " + lower_count);  // 14
