@@ -38,7 +38,7 @@ public class A13StringInputEx {
                     System.out.println("메뉴 선택 다시 하세요.");
                     break;
             }  // switch end
-           
+        //    
         }  // while end
         sc.close();
 
