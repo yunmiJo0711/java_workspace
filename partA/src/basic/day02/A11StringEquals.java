@@ -39,7 +39,7 @@ public class A11StringEquals {
         System.out.println("isBlank : " + "  ".isBlank());  // true
         System.out.println("isBlank : " + "".isBlank());  // true
 
-
+// 
     }
 
 }

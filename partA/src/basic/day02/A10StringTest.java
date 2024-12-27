@@ -46,7 +46,7 @@ public class A10StringTest {
 
         message.lastIndexOf(" ");  // 12  마지막 매칭되는 문자열의 위치 
         System.out.println("Hello~ Java. 자바 : " + message.lastIndexOf(" "));
-
+// 
     }
 
 }
