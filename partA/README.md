@@ -31,3 +31,16 @@
 
 - 결론 : 데이터 형식이 같은 2개를 연산하고 결과를 다른 데이터 형식으로 원한다면 
   2개 중 하나는 형변환을 합니다. 
+
+  ### 메소드의 유형
+
+  - 1. 클래스 이름으로 클래스에 포함된 'static 메소드 또는 속성' 호출 
+    - System.out   : System 클래스의 static 속성
+    - A04Quiz.dollarToWon()
+
+  - 2. message 또는 sc 는 변수. String message 또는 Scanner sc 로 선언된 변수
+      : message 와 sc 는 메모리 주소 참조형 변수. '인스턴스 메소드'.
+    - message.length()
+    - sc.nextLine()
+
+  - 3.  println 은 out 의 메소드. => 인스턴스 메소드
