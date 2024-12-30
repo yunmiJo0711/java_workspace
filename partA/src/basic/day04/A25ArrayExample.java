@@ -31,8 +31,14 @@ public class A25ArrayExample {
         System.out.println("min : " + min);
 
         // 3) 배열을 메소드의 인자로 전달할 수 있습니다.
+        // 메소드로 전달된 값은 배열의 요소 전체가 아니라 배열이 저장된 시작주소
         long result = arraysMul(scores);
         System.out.println("배열 요소의 곱 : " + result);  // 2326750272
+
+        // 4) 전달된 배열의 값을 변경하는 메소드
+        arraysChg(scores);
+        for(int i=0;i<scores.length;i++)
+            System.out.println(scores[i] + "\t");  //{97,77,109,66,82}
 
 
     }
@@ -45,5 +51,13 @@ public class A25ArrayExample {
             result*=array[i];  // 반복명령어 1개일 때 { } 생략.
         return result;
     }
+
+    // 호출할 때 전달한 scores 배열의 시작 주소를 array 변수가 저장합니다. 
+    public static void arraysChg(int[] array){   //{87,67,99,56,72}
+        for(int i=0;i<array.length;i++){
+            array[i] += 10;   //{97,77,109,66,82}
+        }
+    }
+
 
 }
