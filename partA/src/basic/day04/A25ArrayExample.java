@@ -40,11 +40,15 @@ public class A25ArrayExample {
         for(int i=0;i<scores.length;i++)
             System.out.println(scores[i] + "\t");  //{97,77,109,66,82}
 
+        System.out.println("scores 배열의 참조값 : " + scores);   // [I@3e3abc88
+           
+
 
     }
 
     // 배열을 전달받아서 배열 요소를 모두 곱합니다. 
-    // 인자 선언은 지역변수 선언. 배열할당은 호출할 때 전달.
+    // 인자 선언은 지역변수 선언. 
+    // array 배열은 초기값 x, 크기x 아직 모름 => 배열할당은 호출할 때 전달.
     public static long arraysMul(int[] array){
         long result = 1;
         for(int i=0;i<array.length;i++)
@@ -57,6 +61,7 @@ public class A25ArrayExample {
         for(int i=0;i<array.length;i++){
             array[i] += 10;   //{97,77,109,66,82}
         }
+        System.out.println("array 배열의 참조값 : " + array);  // [I@3e3abc88
     }
 
 
