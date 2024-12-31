@@ -47,7 +47,7 @@ public class A28ArrayReview {
         System.out.println(Arrays.toString(cArr));  // [H, e, l, l, o, ,, *, j, a, v, a, !]
         // temp 변수로 인덱스 6번 값 변경한 것이 cArr 변수로 접근해도
         // 인덱스 6번은 변경되어 있습니다. 
-        // 같은 메모리 위치를 2개의 변수가 지정하고 있기 때문입니다. 
+        // 같은 메모리 위치를 2개의 변수가 지정하고 있기 때문입니다.
     }
 
 }
