@@ -38,6 +38,5 @@ public class B06ImmutableString {
             System.out.println(sb);
             System.out.println(sb.toString());
         }
-
-
+        
 }
