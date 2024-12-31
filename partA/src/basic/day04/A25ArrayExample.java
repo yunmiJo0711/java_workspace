@@ -41,9 +41,23 @@ public class A25ArrayExample {
             System.out.println(scores[i] + "\t");  //{97,77,109,66,82}
 
         System.out.println("scores 배열의 참조값 : " + scores);   // [I@3e3abc88
-           
 
+        // 5) 배열을 리턴하는 메소드
+        int[] newarr = makeArray(10);
+        System.out.println("newarr 배열의 참조값 : " + newarr);
+        // newarr은 makeArray 메소드로부터 새로운 배열의 주소를 리턴 받음.
+        for(int i=0;i<newarr.length;i++)
+        System.out.println(newarr[i] + " ,");
 
+        // 6) 배열 복사하기
+        System.out.println("\n/////////");
+        int[] newarr2 = copyArray(scores);
+        // scores 값을 복사하여 새로운 배열 newarr2 만들기
+        System.out.println("scres 배열의 참조값 : " + scores);
+        System.out.println("newarr2 배열의 참조값 : " + newarr2);
+        for(int i=0;i<newarr2.length;i++)
+        System.out.println(newarr2[i] + " ,");
+        
     }
 
     // 배열을 전달받아서 배열 요소를 모두 곱합니다. 
@@ -64,5 +78,21 @@ public class A25ArrayExample {
         System.out.println("array 배열의 참조값 : " + array);  // [I@3e3abc88
     }
 
+    public static int[] makeArray(int size){
+        int[] results = new int[size];  // size 값에 따라 배열의 크기 결정
+        for(int i=0;i<size;i++)
+        results[i] = i*11;   // 0,11,22,33,44,55...
+        System.out.println("results 배열의 참조값 : " + results);
+        return results;  // results 배열의 주소값을 호출한 main 에 전달합니다.
+    }
 
+    // 퀴즈 : '배열을 인자로 받아서' 요소 값을 복사한 '새로운 배열을 리턴'하기
+    //         copyArray
+    public static int[] copyArray(int[] array){
+        int[] results = new int[array.length];  //results 초기값은 모두 0
+        for(int i=0;i<array.length;i++)
+        results[i]=array[i];   // 배열 요소값 복사
+
+        return results;
+    }
 }
