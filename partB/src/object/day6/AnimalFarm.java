@@ -75,5 +75,4 @@ public class AnimalFarm {
     return "Animal[type=" + type + ", name=" + name + 
                     ", age=" + age + ", color=" + color + "]" + sound();
    }
-   
 }

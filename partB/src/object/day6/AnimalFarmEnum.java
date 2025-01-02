@@ -31,7 +31,6 @@ public class AnimalFarmEnum {
         this.color = color;
     }
 
-
    public String sound(){
         String result = "";
         switch (this.type) {  // typr 필드는 AnimalEnum 형식. => 상수로 감사
