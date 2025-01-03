@@ -19,7 +19,8 @@ public class B12ScoreApp {
     // 길순, CRD2, 파이썬 , 88
     Scanner sc = new Scanner(System.in);
     boolean run = true;
-    int index =5;
+    int index = 5;
+
     while (run) {
         System.out.print(" 이름 >>> ");
         String name = sc.next();
@@ -43,7 +44,7 @@ public class B12ScoreApp {
         System.out.println("객체가 생성되었습니다. " + stuScores[index].toScore());
         
         System.out.println("\n계속할까요?");
-        if(sc.next().equals("n")) run=false;  // 터미널에 소문자 n 만 가능 대문자 N 안됌
+        if(sc.next().equals("n")) run=false;  // 터미널에 소문자 n만 가능. (대문자 N 안됌)
         else
         index++;
     }
@@ -51,10 +52,11 @@ public class B12ScoreApp {
 
         /* for(int i=0;i<stuScores.length;i++){
             System.out.println(stuScores[i]);
-        }*/ 
+        }
+        */ 
 
         int sum=0;
-        for( Score temp : stuScores){
+        for(Score temp : stuScores){
         System.out.println(temp);
         if(temp!=null){  // 조건식 없이 누적 합계 식 실행하면 오류. null 일 때
             sum += temp.getJumsu();
