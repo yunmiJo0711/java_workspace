@@ -18,7 +18,6 @@ public class Shape{
     public String toString() {
         return "Shape [shName=" + shName + ", width=" + width + ", height=" + height + "]";
     }
-
 }
 
 class Triangle extends Shape{
