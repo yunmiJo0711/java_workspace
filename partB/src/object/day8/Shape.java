@@ -26,14 +26,17 @@ class Triangle extends Shape{
         this.width=width;
         this.height=height;
     }
+
     @Override
     public long area() {
+        // 넓이 계산 
         return (width*height)/2;
     }
+
     @Override
     public long length() {
-        long halfwidth = (long)(width/2.0);
-        long sideLength = (long)Math.sqrt(Math.pow(halfwidth, 2) + Math.pow(height, 2));
+        long halfwidth = (long)(width/2.0);  // 반폭
+        long sideLength = (long)Math.sqrt(Math.pow(halfwidth, 2) + Math.pow(height, 2));  // 변의 길이
         // 둘레 계산
         return width + 2 * sideLength;
     }
@@ -47,11 +50,13 @@ class Rectangle extends Shape{
         this.width=width;
         this.height=height;
     }
+
     @Override
     public long area() {
         return width * height;
         
     }
+
     @Override
     public long length() {
         return (width+height)*2;
@@ -66,14 +71,17 @@ class Circle extends Shape{
         this.shName="원형";
         this.radius=radius;
     }
+
     @Override
     public long area() {
         return (long)(3.1419*radius*radius);
     }
+
     @Override
     public long length() {
         return (long)(2*3.1419*radius);
     }
+
     @Override
     public String toString() {
         return "Circle [shName=" + shName + ", radius=" + radius + "]";

@@ -16,7 +16,6 @@ public class B22ShapeTest {
         System.out.println(cir);
         System.out.println("cir 넚이 =" + cir.area() + ", 원의 둘레길이 =" + cir.length());
 
-
     }
 
 }
