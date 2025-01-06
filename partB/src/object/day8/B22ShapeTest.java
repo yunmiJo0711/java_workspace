@@ -25,7 +25,7 @@ public class B22ShapeTest {
         list.add(rec);
         list.add(cir);
 
-        System.out.println("// 인덱스 지정해서 가져오기 //");
+        System.out.println("// 인덱스 지정해서 가져오기 //");  // add 가 들어간 순서대로 인덱스 순서 정해짐.
         System.out.println(list.get(0).toString() + "넓이 =" + list.get(0).area());
         System.out.println(list.get(1).toString() + "넓이 =" + list.get(1).area());
         System.out.println(list.get(2).toString() + "넓이 =" + list.get(2).area());
@@ -34,7 +34,6 @@ public class B22ShapeTest {
         for(Shape temp : list){
             System.out.println(temp.toString() + "둘레 길이 =" + temp.length());
         }
-
 
     }
 
