@@ -13,7 +13,7 @@ public class B25AbstractAnimal {
         farm.add(new AFrog("크루루", "노랑"));
 
         Person sana = new Person("사나", 17);
-        boolean result = sana.isAdopt(farm.get(2));
+        boolean result = sana.isAdopt(farm.get(2));  // 사나가 2번 객체를 분양 받을 수 있나?
         System.out.println("sana 의 dog 분양 가능 : " + result); // true
         System.out.println("sana 의 cat 분양 가능 : " + sana.isAdopt(farm.get(0)));  // false
     }
