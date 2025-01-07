@@ -9,7 +9,7 @@ public class B24AbstractTest {
         Shape sh = new Shape();
         System.out.println(sh + ", 넓이 =" + sh.area());
 
-        // 2. 부모 객체 생성 불가 : AbstractShape 는 추상 클래스라서 추상 메소드 정의가 안되어 있기 때문에.
+        // 2. 부모 객체 생성 불가 : AbstractShape 는 추상 클래스라서 추상 메소드 정의가 안되어 있기 때문에. =>추상 메소드가 있어야함.
         // AbstractShape absh = new AbstractShape();  // 오류
 
         System.out.println("추상 클래스 테스트 // ");
