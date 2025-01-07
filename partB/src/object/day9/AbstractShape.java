@@ -23,7 +23,12 @@ public abstract class AbstractShape {
     public int getHeight() {
         return height;
     }
-    
+
+    @Override
+    public String toString() {
+        return "AbstractShape [width=" + width + ", height=" + height + 
+        ", area()=" + area() + ", getClass()=" + getClass() + "]";
+    }
 
 }
 
