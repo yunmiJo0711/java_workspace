@@ -28,6 +28,7 @@ public class B32LambdaTest {
                 
             }
         };
+        test3.execute("헬로우");
 
         // 람다식으로 하면?
         Test2Function test4 = (message) -> System.out.println("메시지 =" + message);
@@ -36,7 +37,12 @@ public class B32LambdaTest {
         test4.execute("hello");
         // test4.execute(99);  // 오류: 인터페이스에서 선언한 추상메소드 인자 타입과 일치해야함.
 
+        Test3Function test5 = (a,b) ->{return a+b;};
+        System.out.println(test5.execute(34, 23));
         
+
+        Test4Function test6 = () -> {return 100;};
+        System.out.println(test6.execute());
     }
 
 }
