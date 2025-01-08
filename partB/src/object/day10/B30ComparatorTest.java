@@ -60,6 +60,15 @@ public class B30ComparatorTest {
             });
             System.out.println("나이 필드 내림차순 정렬한 결과 //");
             System.out.println(Arrays.toString(members));
+
+            System.out.println("// Comparator 구현객체 생성 람다식 (이름순) //");
+            Arrays.sort(members,(o1,o2) -> o1.getName().compareTo(o2.getName()));
+            System.out.println(Arrays.toString(members));
+
+            System.out.println("// Comparator 구현객체 생성 람다식 (나이순) //");
+            Arrays.sort(members,(o1,o2) -> o1.getAge()-o2.getAge());
+            System.out.println(Arrays.toString(members));
+            
             
     }
 
