@@ -28,6 +28,7 @@ public class B30ComparatorTest {
 
             // 나이 필드값 정렬 - 인터페이스의 익명 클래스로 만들어 봅니다.
             // 비교자
+            // 오름차순
             Comparator<Member> ageAscending = new Comparator<Member>() {
                 @Override
                 public int compare(Member o1, Member o2) {
@@ -39,6 +40,26 @@ public class B30ComparatorTest {
             System.out.println("나이 필드 오름차순 정렬한 결과 //");
             System.out.println(Arrays.toString(members));
 
+
+
+            // 내림차순
+            Comparator<Member> ageDecending = new Comparator<Member>() {
+                @Override
+                public int compare(Member o1, Member o2) {
+                    return o2.getAge()-o1.getAge();
+                }
+            };
+
+            // Arrays.sort(members, ageDecending);
+            // 익명 클래스를 사용하는 주요 방식
+            Arrays.sort(members,  new Comparator<Member>() {
+                @Override
+                public int compare(Member o1, Member o2) {
+                    return o2.getAge()-o1.getAge();
+                }
+            });
+            System.out.println("나이 필드 내림차순 정렬한 결과 //");
+            System.out.println(Arrays.toString(members));
             
     }
 
