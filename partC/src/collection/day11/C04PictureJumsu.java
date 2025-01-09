@@ -1,6 +1,7 @@
 package collection.day11;
 
 import java.util.Arrays;
+import java.util.List;
 
 // 프로그래머스 문제 이름 : 추억 점수
 public class C04PictureJumsu {
@@ -19,22 +20,45 @@ public class C04PictureJumsu {
 
             for(int j=0;j<photo[i].length;j++){  // 작은 배열 값 하나씩 출력
             System.out.println(photo[i][j]);
-
             }
 
         } // for문 end
 
         System.out.println("// 문제 풀이 //");
-        String[] name = {"may","kein","kain","radi"};
-        int[] yearning = {5,10,1,3};
+        String[] name = {"kali","mari","don"}; //{"may","kein","kain","radi"};
+        int[] yearning = {11,1,55};//{5,10,1,3};
+        String[][] photo2 = {
+            {"kali","mari","don"},
+            {"pony","tom","teddy"},
+            {"con","mana","don"}
+        };
 
+        int[] result = new Solution().solution(name, yearning, photo2);
+        System.out.println(Arrays.toString(result));  // 답 출력
+        
     } // main end
 
 } // class end
 
 class Solution {
     public int[] solution(String[] name, int[] yearning, String[][] photo) {
-        int[] answer = {};
+        int[] answer = new int[photo.length];  // 답 저장 배열
+
+        for(int i=0;i<photo.length;i++){  // 큰 배열 반복
+            int sum = 0;  // 각 사진의 점수 합계
+            List<String> list = Arrays.asList(name);  // 인덱스 검색을 위한 변환
+            for(int j=0;j<photo[i].length;j++){  // 작은 배열 값 하나씩 출력
+                int idx = list.indexOf(photo[i][j]);
+                if(idx > -1){
+                    sum += yearning[idx];  // 같은 인덱스 위치에서 점수 가져오기 
+                    System.out.println("idx=" + idx + " , 점수 =" + yearning[idx]);
+                }
+                answer[i]=sum;
+                // 19, 15, 6
+            }  // 작은 for 문 end
+            System.out.println(i + "위치의 점수 : " + answer[i]);
+        }  // 큰 for 문 end
+
         return answer;
     }
 }
