@@ -78,13 +78,13 @@ class Test {
         System.out.println(photo[0][2]);
         System.out.println(photo[0][3]);
         System.out.println("photo[1] : " + Arrays.toString(photo[1]));
-        // 24~27 라인 출력을 인덱스 사용 for문으로 도전~
-        for(int i=0;i<photo[1].length;i++){
+        // 24~27 라인 출력을 인덱스(각 요소들의 위치를 나타내는 숫자) 사용 for문으로 도전~
+        for(int i=0;i<photo[1].length;i++){  // for(초기화; 조건; 증감;)
             System.out.println(photo[1][i]);
             }
         System.out.println("photo[2] : " + Arrays.toString(photo[2]));
-        // 24~27 라인 출력을 향상 for문으로 도전~
-        for(String t : photo[2]){
+        // 24~27 라인 출력을 향상 for문(향상 for문은 인덱스를 신경쓸 필요없이 각 요소에 접근 가능)으로 도전~
+        for(String t : photo[2]){  // for(데이터타입 변수 : 배열 또는 컬렉션)
             System.out.println(t);
         }
     }
