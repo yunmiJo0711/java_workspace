@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 // ArrayList
-public class BC01ArrayListTest {
+public class C01ArrayListTest {
     // 메소드 : add(값), get(인덱스), set(인덱스, 값), remove(값 또는 인덱스), size(크기)
     //          contains(값), indexOf(값) => 검색 기능
     
