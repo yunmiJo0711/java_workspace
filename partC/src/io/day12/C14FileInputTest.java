@@ -22,6 +22,13 @@ public class C14FileInputTest {
             
         } catch (IOException e) {
             System.out.println("예외 : " + e.getMessage());
+        } finally {
+            try {
+                fis.close();
+            } catch (IOException e) {
+  
+                e.printStackTrace();
+            }
         }
         
     }
