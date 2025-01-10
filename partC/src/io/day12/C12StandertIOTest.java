@@ -1,7 +1,6 @@
 package io.day12;
 
 import java.io.IOException;
-import java.security.PublicKey;
 
 public class C12StandertIOTest {
 
