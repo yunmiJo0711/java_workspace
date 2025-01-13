@@ -7,7 +7,9 @@ import java.util.List;
 
 public class JavaWordApp {
     //private : JavaWordList 객체
-    private JavaWordList words = new JavaWordList("단어장.txt");
+
+    // 생성자로 전달하는 문자열이 단어장 파일명
+    private JavaWordList words = new JavaWordList("C:\\Class241129\\자바키워드단어장.txt");
     
     //프로그램 실행을 시작하는 메소드
     private void start(){
@@ -15,7 +17,7 @@ public class JavaWordApp {
             //단어 등록,목록,검색,삭제 기능을 메뉴로 구현합니다.
             System.out.println("단어장 프로그램 시작합니다.~~" + "~".repeat(30));
             while(true){
-                System.out.println("\t <메뉴를 선택하세요.>");
+                System.out.println("\n\t <메뉴를 선택하세요.>");
                 System.out.println("\t 1. 단어 등록");
                 System.out.println("\t 2. 단어 목록 출력");
                 System.out.println("\t 3. 단어 검색");
@@ -118,13 +120,7 @@ public class JavaWordApp {
         } 
     }
 
-
-
-
-
-
-
-    public static void main(String[] args) {
+   public static void main(String[] args) {
         //프로그램 실행하는 객체 생성하고 
         //          (메소드로 기능을 분리할 때 main이 호출하는 static 을 없애기 위함.)
         //         start 메소드 프로그램 실행 내용을 코딩
