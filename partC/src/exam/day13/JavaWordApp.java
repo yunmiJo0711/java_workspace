@@ -126,8 +126,6 @@ public class JavaWordApp {
         //         start 메소드 프로그램 실행 내용을 코딩
         JavaWordApp app = new JavaWordApp();
         app.start();
-    }
-
-    
+    }  
     
 }
