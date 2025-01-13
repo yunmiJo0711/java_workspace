@@ -1,5 +1,8 @@
 package io.day13;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -7,10 +10,11 @@ import java.io.PrintWriter;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.util.Scanner;
-public class ClientA {
+
+public class ClientB {
 
     public static void main(String[] args) {
-        Socket socket = null;
+         Socket socket = null;
         Scanner sc = null;
         try {
             System.out.println("[클라이언트] 프로그램 입니다.");
@@ -19,32 +23,31 @@ public class ClientA {
             /////서버에게 연결 요청 //////
             /// 연결하려는 서버의 ip, port 를 정확히 설정하여 연결 요청을 보냅니다.
             // socket.connect(new InetSocketAddress("localhost",5050));
-            socket.connect(new InetSocketAddress("192.168.0.253",5050));
+            socket.connect(new InetSocketAddress("localhost",5050));
 
             ///////////// 데이터 송수신할 입출력 스트림 객체 생성하기
             InputStream is = socket.getInputStream();
             OutputStream os = socket.getOutputStream();
 
-            /// 문자기반 입출력스트림 생성하기 
-            sc = new Scanner(is);                   // 서버가 보낸 데이터를 받을 때 
-            PrintWriter pw = new PrintWriter(os,true);  // 서버에게 데이터를 보낼 때 
+           System.out.println("파일 업로드 준비가 되면 엔터를 치세요.");
+           String message = System.console().readLine();
 
-            ///////데이터 수신(스레드 사용하지 않으면 송신과 수신 순서를 맞춰서 코드 작성)
-            
-            String message = sc.nextLine();
-            System.out.println(message);  // 수신 데이터 화면에 출력하기
+           String filepath = "C:\\Class241129\\bird.jpg";
+           // 클라이언트 컴퓨터(입력)의 이미지파일을 인터넷(출력)을 통해 서버로 업로드 
+           BufferedInputStream bis = new BufferedInputStream(new FileInputStream(filepath));
+           BufferedOutputStream bos = new BufferedOutputStream(os);
+           int b; int count=0;
+           while ((b=bis.read())!=-1) {
+            bos.write(b);
+            count++;
+           }
+        System.out.println(count + "바이트 파일을 업로드 완료했습니다."); 
 
-            // 데이터 보내기 
-            System.out.print("서버에게 보낼 메시지 입력 >>>");
-            message = System.console().readLine();  // 키보드 입력
-            pw.println("from 클라이언트 : " + message);
-
-            
         } catch (IOException e) {
             System.out.println("예외 : " + e.getMessage());
         }finally{
             try {
-                socket.close(); sc.close(); 
+                socket.close(); 
             } catch (Exception e) {   }
         }
     }
