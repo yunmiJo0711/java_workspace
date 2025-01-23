@@ -19,7 +19,8 @@ public class StatementTest {
             // createStatement() : Statement 타입의 객체를 생성 
             System.out.println("Statement 구현 클래스는? " + stmt.getClass().getName());
 
-            stmt.executeQuery(sql);  // sql 쿼리 실행. 컴파일한 sql을 오라클이 실행합니다. 
+            stmt.executeQuery(sql);  // sql 쿼리 실행. 컴파일한 sql을 오라클이 실행합니다. executeQuery 메소드가 실행메소드.
+                                     // sql 을 인자로 받는 execute 메소드 사용도 가능합니다. 
         } catch (Exception e) {
            System.out.println("SQL 실행 예외 : " + e.getMessage());
         }
