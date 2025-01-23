@@ -18,12 +18,12 @@ public class CustomerMenu1 {
         // db 연결하여 update 실행하기
         Connection connection = OracleConnectionUtil.getConnection();
 
-        
         // 2) 실행. 매개변수값 전달. 매개변수 인덱스는 sql 문의 ? 의 순서
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
             pstmt.setString(1, email);
             pstmt.setString(2, customid);
            
+            // 리턴값은 insert, update, delete sql 실행이 반영된 행의 갯수
             int result = pstmt.executeUpdate();
             System.out.println("result : " + result);
             if(result ==1)

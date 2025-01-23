@@ -12,7 +12,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-@AllArgsConstructor  // 커스텀 생성자  -- App.java 에서 오류남
+@AllArgsConstructor  // 모든 프로퍼티갓 초기화 하는 커스텀 생성자  -- App.java 에서 오류남
 @NoArgsConstructor   // 기본 생성자 -- App.java 에서 오류 없어짐
 public class Customer {
     private String customId;
