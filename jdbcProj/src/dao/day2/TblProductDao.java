@@ -19,9 +19,9 @@ public class TblProductDao {
     }
 
     // db 연결 정보를 상수로 정의합니다.
-    private static final String URL = "";
-    private static final String USERNAME = "";
-    private static final String PASSWORD = "";
+    private static final String URL = "jdbc:oracle:thin:@//localhost:1521/xe";
+    private static final String USERNAME = "c##idev";
+    private static final String PASSWORD = "1234";
 
     // db 연결 객체 만드는 메소드 dao 에서만 사용할 수 있도록 정의
     private Connection getConnection() throws SQLException{
@@ -127,13 +127,13 @@ public class TblProductDao {
                 list.add(product);
             }
             for(Product p : list){
-                System.out.println(String.format("%10s  %5s  %5s  %9d",
+                System.out.println(String.format("%-10s  %-5s  %5s  %9d",
                                                 p.getPcode(), p.getCategory(), p.getPname(), p.getPrice()));
             }
             
         } catch (Exception e) {
             System.out.println("예외 : " + e.getMessage());
         }
-        return null ; 
+        return null; 
     }
 }
