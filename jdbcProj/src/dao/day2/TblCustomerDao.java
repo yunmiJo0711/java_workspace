@@ -17,11 +17,7 @@ public class TblCustomerDao {
     public static TblCustomerDao getInstance(){
         return dao;
     }
-
-
-
-
-
+    
     // db 연결 정보를 상수로 정의합니다.
     private static final String URL = "jdbc:oracle:thin:@//localhost:1521/xe";
     private static final String USERNAME = "c##idev";
