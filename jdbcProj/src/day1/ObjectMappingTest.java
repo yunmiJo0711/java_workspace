@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import vo.day1.Customer;
 
 // select 조회 결과를 자바 오브젝트로 매핑(연관시킨다.)하기
+// 기본키로 조회하여 행의 갯수 1개만 (없으면 0개)
 public class ObjectMappingTest {
 
     public static void main(String[] args) {

@@ -15,7 +15,7 @@ public class C01ArrayListTest {
         List<String> list = new ArrayList<>();  
         // list 변수로 사용하는 메소드는 only List 인터페이스 -> List 타입으로 선언.
 
-        list.add("sana"); list.add("momo"); list.add("nana");
+        list.add("sana"); list.add("momo"); list.add("nana");  //  --> 데이터를 추가할 때 사용하는 메소드 add()
 
         // 방법 2 : List 의 static 메소드로 데이터를 저장하면서 생성
         List<String> test = List.of("sana","momo","nana","사나");  
@@ -26,7 +26,7 @@ public class C01ArrayListTest {
         List<String> alist = Arrays.asList(arr);
 
 
-        System.out.println("ArrayList : " + list + "("+ list.size() +")");
+        System.out.println("ArrayList : " + list + "("+ list.size() +")");  //---> 리스트 크기를 나타낼 때 사용하는 메소드 size()
         System.out.println("List.of : " + test + "("+ test.size() +")");
         System.out.println("Arrays.asList : " + alist + "("+ alist.size() +")");
         // list, test, alist 변수 출력하면 참조값이 아니라 문자열로 출력.
