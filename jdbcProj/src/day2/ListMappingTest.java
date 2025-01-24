@@ -22,7 +22,7 @@ public class ListMappingTest {
         // 예시 : ? 년도에 이용하여 가입한 회원 조회(검색)
         Connection connection = OracleConnectionUtil.getConnection();
 
-        String year = "2023";
+        String year = "2025";
         String sql = "SELECT * FROM tbl_customer WHERE to_char(reg_date,'yyyy') = ?";
 
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
@@ -33,6 +33,7 @@ public class ListMappingTest {
             // <-> Customer 자바 클래스 정의하여 데이터는 객체로 저장.
             Customer customer = null;
             List<Customer> list = new ArrayList<>();
+
             while (rs.next()) {
                 String customId = rs.getString(1);
                 String name = rs.getString(2);
@@ -41,11 +42,19 @@ public class ListMappingTest {
                 Date regDate = rs.getDate(5);
                 customer = new Customer(customId, name, email, age, regDate);
                 System.out.println(customer);
+
                 list.add(customer);  // 리스트 자료구조에 위에서 만든 객체 저장
-                
-                
+
             }
-            System.out.println("조회 결과  : " + list);
+
+            // System.out.println("조회 결과  : " + list);
+            // 브라우저 출력은 행, 컬럼 각각 출력
+            System.out.println("==== " + year + "년도에 가입한 회원 ===");
+            for(Customer cus : list){
+                System.out.println(cus.getCustomId() + "\t" + cus.getName() + "\t" + 
+                                    cus.getEmail() + "\t" + cus.getAge() + "\t" + cus.getRegDate());
+            }
+
         } catch (Exception e) {
             System.out.println("검색 select 실행 예외 : " + e.getMessage());
         }
