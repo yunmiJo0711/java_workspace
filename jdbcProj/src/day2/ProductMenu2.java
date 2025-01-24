@@ -10,27 +10,23 @@ import day1.OracleConnectionUtil;
 import vo.day1.Product;
 
 
-public class ProductMenu1 {
+public class ProductMenu2 {
 
     public static void main(String[] args) {
-        System.out.println("가격대로 상품을 검색하는 메뉴입니다. ");
-        System.out.println("시작(최소) 가격 입력 >>> ");
-        int price1 = Integer.parseInt(System.console().readLine());
-        System.out.println("마지막(최대) 가격 입력 >>> ");
-        int price2 = Integer.parseInt(System.console().readLine());
-
-        // 가격1 ~ 가격2
-        
+        System.out.println("키워드로 상품을 검색하는 메뉴입니다. ");
+        // 상품 키워드 입력 
+        System.out.println("검색 키워드 입력 >>> ");
+        String keyword = System.console().readLine();
         Connection connection = OracleConnectionUtil.getConnection();
 
-        String sql = "SELECT * FROM tbl_product WHERE price BETWEEN ? AND ? ";
+        String sql = "SELECT * FROM TBL_PRODUCT tp WHERE PNAME LIKE '%' || ? || '%' ";
         List<Product> list = new ArrayList<>();
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
-            pstmt.setInt(1, price1);
-            pstmt.setInt(2, price2);
+            pstmt.setString(1, keyword);
 
             ResultSet rs = pstmt.executeQuery();
             Product product = null;
+            
             while (rs.next()) {
                 product = new Product(rs.getString(1),
                                     rs.getString(2),
