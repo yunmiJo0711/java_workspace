@@ -6,7 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import vo.day1.Product;
 
@@ -44,7 +46,7 @@ public class TblProductDao {
 
                 result = pstmt.executeUpdate();
             
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.out.println("예외 : " + e.getMessage());
         }
         return result;
@@ -63,37 +65,37 @@ public class TblProductDao {
 
                 result = pstmt.executeUpdate();
             
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.out.println("예외 : " + e.getMessage());
         }
         return result;
     }
 
     // 기본키 값으로 삭제
-    public int delect(String pname){
+    public int delete(String pcode){
         int result=0;
-        String sql = "DELETE FROM tbl_product WHERE pname = ?";
+        String sql = "DELETE FROM tbl_product WHERE pcode = ?";
         try (Connection connection = getConnection();
             PreparedStatement pstmt = connection.prepareStatement(sql);
             ) {
-                pstmt.setString(1, pname);
+                pstmt.setString(1, pcode);
 
                 result = pstmt.executeUpdate();
             
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.out.println("예외 : " + e.getMessage());
         }
         return result;
     }
 
     // 기본키 값으로 조회
-    public Product selectByPk(String pname){
-        String sql = "SELECT * FROM TBL_PRODUCT WHERE pname = ?";
+    public Product selectByPk(String pcode){
+        String sql = "SELECT * FROM TBL_PRODUCT WHERE pcode = ?";
         Product product = null;
         try (Connection connection = getConnection();
             PreparedStatement pstmt = connection.prepareStatement(sql);
             ) {
-                pstmt.setString(1, pname);
+                pstmt.setString(1, pcode);
                 ResultSet rs = pstmt.executeQuery();
                 if(rs.next()){
                     product = new Product(rs.getString(1),
@@ -102,14 +104,14 @@ public class TblProductDao {
                                           rs.getInt(4));
                 }
             
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.out.println("예외 : " + e.getMessage());
         }
         return product;
     }
 
     // 상품 키워드로 조회
-    public Product searchByKeyword(String pname){
+    public List<Product> searchByKeyword(String pname){
         String sql = "SELECT * FROM TBL_PRODUCT LIKE '%' || ? || '%' ";
         List<Product> list = new ArrayList<>();
         try (Connection connection = getConnection();
@@ -126,14 +128,54 @@ public class TblProductDao {
                                       rs.getInt(4));
                 list.add(product);
             }
-            for(Product p : list){
-                System.out.println(String.format("%-10s  %-5s  %5s  %9d",
-                                                p.getPcode(), p.getCategory(), p.getPname(), p.getPrice()));
-            }
             
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.out.println("예외 : " + e.getMessage());
         }
-        return null; 
+        return list; 
+    }
+
+    // 상품 가격 정보를 Map 에 저장하기 - map 연습 예제
+    //    ㄴ Map 에 저장한 데이터는 검색 성능이 좋습니다.
+    // 상품 가격표
+    public Map<String, Integer> getPriceTable(){
+        Map<String, Integer> map = new HashMap<>();
+        String sql="SELECT pcode, price FROM tbl_product";
+        try (Connection conn = getConnection();
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+        ) {
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()) {
+                map.put(rs.getString(1),    // key 는 조회된 첫번째 컬럼 pcode
+                        rs.getInt(2));      // value 는 조회된 두번째 컬럼 price
+            }      
+        } catch (SQLException e) {
+            System.out.println("getPriceTable 예외 발생 : " + e.getMessage());
+        }
+        return map;
+
+    }
+
+    // Map 에 저장된 데이터는 selectByPk(String pcode) 메소드를 대신할 수 있습니다. 
+    // Map 연습 메소드 - CartMenu 에서 활용은 보류.
+    public Map<String, Product> selectAll(){
+        Map<String, Product> map = new HashMap<>();
+        String sql="SELECT * FROM tbl_product";     // 모든 행 모든 컬럼
+        try (Connection connection = getConnection();
+            PreparedStatement pstmt = connection.prepareStatement(sql);
+            ) {
+                ResultSet rs = pstmt.executeQuery();
+                while (rs.next()) {
+                    // map 에 조회된 행들을 추가
+                    Product vo = new Product(rs.getString(1),
+                                            rs.getString(2),
+                                            rs.getString(3),
+                                            rs.getInt(4));
+                                    map.put(rs.getString(1), vo);  // value 타입이 Product        
+                }
+        } catch (SQLException e) {
+            System.out.println(" 예외 : " + e.getMessage());
+        }
+                return map;
     }
 }
