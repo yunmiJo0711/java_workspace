@@ -111,13 +111,13 @@ public class TblProductDao {
     }
 
     // 상품 키워드로 조회
-    public List<Product> searchByKeyword(String pname){
+    public List<Product> searchByKeyword(String keyword){
         String sql = "SELECT * FROM TBL_PRODUCT LIKE '%' || ? || '%' ";
         List<Product> list = new ArrayList<>();
         try (Connection connection = getConnection();
             PreparedStatement pstmt = connection.prepareStatement(sql);
             ) {
-                pstmt.setString(1, pname);
+                pstmt.setString(1, keyword);
 
                 ResultSet rs = pstmt.executeQuery();
                 Product product = null;

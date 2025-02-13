@@ -124,7 +124,7 @@ public class CartMenu {
     for(int i =0;i<list.size();i++){
       BuyVo temp = list.get(i);
       System.out.println(i + "\t" + temp.getPcode() + "\t" + temp.getQuantity());
-      totalprice += (temp.getQuantity()*priceTables.get(temp.getPcode()));  // ?? 
+      totalprice += (temp.getQuantity() * priceTables.get(temp.getPcode()));  // ?? 
     }
     // 장바구니 상품들 총 결제금액을 구할 예정
     System.out.println("총 결제 금액 : " + totalprice);
